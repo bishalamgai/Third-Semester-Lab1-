@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+
+    <style>
+        table, td {
+            border: 1px solid black;
+        }
+    </style>
+
+    <table id="x">
+        <tr>
+            <td>Row1 Col1</td>
+            <td>Row1 Col2</td>
+        </tr>
+
+        <tr>
+        <td>Row2 Col1</td>
+        <td>Row2 Col2</td>
+        </tr>
+        
+        <tr>
+            <td>Row3 Col1</td>
+            <td>Row3 Col2</td>
+        </tr>
+
+        <tr>
+            <td>Row4 Col1</td>
+            <td>Row4 Col2</td>
+        </tr>
+
+        <tr>
+            <td>Row5 Col1</td>
+            <td>Row5 Col2</td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="add()">Insert Row</button>
+    <button onclick="del()">Delete Row</button>
+    <div id="info">Message: </div>
+    <script>
+        function add(){
+            x=document.getElementById("x")
+            var value = document.getElementById("x");
+        var newRow = value.insertRow(value.rows.length);
+        var Row1Col1 = newRow.insertCell(0);
+        var Row1Col2 = newRow.insertCell(1);
+        Row1Col1.innerHTML = "Row" + (value.rows.length) + "Col1";
+        Row1Col2.innerHTML = "Row" + (value.rows.length) + "Col2";   
+
+        messageinfo();
+        }
+
+        function del(){
+            x.deleteRow(0)
+            var value = document.getElementById("x");
+        if (value.rows.length > 1) {
+            value.deleteRow(1);
+        }
+        messageinfo();
+    }
+        function messageinfo() {
+        var messageLabel = document.getElementById("info");
+        var value = document.getElementById("x");
+
+        if (value.rows.length <= 1) {
+            messageLabel.textContent = "Message: No more rows to delete";
+        } else {
+            messageLabel.textContent = "Message: ";
+        }
+    }
+    </script>
+</body>
+</html>
